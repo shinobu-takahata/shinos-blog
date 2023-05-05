@@ -1,8 +1,15 @@
 import Image from 'next/image'
 import BlogItem  from './components/blog/blog_item'
+import { client } from './libs/client';
+import { Blog } from './types/blog';
 
-export default function Home() {
-
+const  Home = async() => {
+  const data = await client.get({ endpoint: 'blogs' });
+  const blogs:Blog[] = data.contents;
+  console.log("datadatadata");
+  console.log(blogs);
+  
+  console.log("datadatadata");
   const contents = [
     {
       img_url: "https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500",
@@ -37,3 +44,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default Home;
