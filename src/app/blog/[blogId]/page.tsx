@@ -10,18 +10,19 @@ type PageProps = {
 
 // ブログ詳細
 const BlogDetailPage = async ({ params }: PageProps) => {
+    const data = await client.get({ endpoint: "blogs", contentId:params.blogId });
+
     console.log("testsssssssssssssssssssssssss");    
     return (
-        <div className="prose max-w-screen-md mx-auto">
-            aaaaaaaaa
-        {/* <h1>{blog.title}</h1>
-        <p>{blog.publishedAt}</p>
+      <div className="prose max-w-screen-md mx-auto p-10">
+        <h1>{data.title}</h1>
+        <p>{data.publishedAt}</p>
         <div
             dangerouslySetInnerHTML={{
-            __html: `${blog.content}`,
+            __html: `${data.content}`,
             }}
-        /> */}
-        </div>
+        />
+      </div>
     );
 }
 
