@@ -1,15 +1,17 @@
-'use client'
+'use client';
 import { Blog } from '@/app/types/blog';
-import Image from 'next/image'
+import Image from 'next/image';
 import Link from 'next/link';
 
 const BlogItem = (content:Blog) => {
     return (
         <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
             <Link  href={`blog/${content.id}`}>
-                <img
+                <Image
                 src={content.eyecatch.url}
-                className="object-cover w-full h-48"
+                width={1000}
+                height={48}
+                className="object-cover"
                 alt=""
                 />
                 <div className="p-5 border border-t-0">
@@ -25,6 +27,6 @@ const BlogItem = (content:Blog) => {
             </Link>
         </div>
     );
-}
+};
 
 export default BlogItem;

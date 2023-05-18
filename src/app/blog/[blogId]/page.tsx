@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { notFound } from 'next/navigation';
 import {client} from '../../libs/client';
 import { Blog } from '@/app/types/blog';
 
@@ -24,6 +24,6 @@ const BlogDetailPage = async ({ params }: PageProps) => {
         />
       </div>
     );
-}
+};
 
-export default BlogDetailPage
+export default BlogDetailPage;

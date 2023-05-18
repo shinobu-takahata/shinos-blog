@@ -1,5 +1,4 @@
-'use client'
-import { Button, Drawer } from "@mui/material";
+'use client';
 import Link from "next/link";
 import { useState } from "react";
 
@@ -26,6 +25,6 @@ const Head = () => {
       </div>
     </header>
   );
-}
+};
 
-export default Head
+export default Head;
