@@ -1,6 +1,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import Head from './head';
+import Footer from './footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,8 +24,11 @@ export default function RootLayout({
       </head>
 
       <body className="">
-        <Head />
-        {children}
+        <div className='grid grid-rows-[120px_minmax(800px,_1fr)_75px]'>
+          <Head></Head>
+          {children}
+          <Footer></Footer>
+        </div>
       </body>
     </html>
   );
