@@ -22,7 +22,7 @@ const  Home = async() => {
          </div>
        </div>
       </main>
-      <aside className='col-span-1 border-l-4'>aside</aside>
+      <aside className='col-span-1 border-l-4'></aside>
     </div>
   );
 };
