@@ -2,7 +2,6 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import Head from './head';
 import Footer from './footer';
-import Hamburger from './hamburger';
 
 const inter = Inter({ subsets: ['latin'] });
 

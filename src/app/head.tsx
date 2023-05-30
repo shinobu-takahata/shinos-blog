@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from 'next/image';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Hamburger from "./hamburger";
 
 // ヘッダー
@@ -19,11 +19,18 @@ const Head = () => {
         <Link  href={`/`} className="ml-5">
           <span className="text-3xl text-gray-300 font-fancy font-bold">しのぶろぐ</span>
         </Link>
-        <div id="hamburger" className="mr-5 absolute right-0 hover:cursor-pointer z-40 ">
-          <FontAwesomeIcon icon={faBars} size="2xl" style={{color: "#fafafa",}} onClick={handleMenuOpen} />
+        <div id="hamburger" className={`mr-5 right-0 hover:cursor-pointer z-40 ${menuOpen ? "fixed" : "absolute"}`}>
+          {
+            menuOpen 
+            ? <FontAwesomeIcon icon={faXmark} size="2xl" style={{color: "#fafafa",}} onClick={handleMenuOpen} className="transition-all duration-150"/> 
+            : <FontAwesomeIcon icon={faBars}  size="2xl" style={{color: "#fafafa",}} onClick={handleMenuOpen} />
+          }
+          
         </div>
       </div>
-      <Hamburger menuOpen={menuOpen}/>
+      
+      <Hamburger menuOpen={menuOpen} onClick={handleMenuOpen}/>
+
     </header>
   );
 };
