@@ -1,7 +1,6 @@
-'use client';
-import { useState } from "react";
+import Link from 'next/link';
 
-// ヘッダー
+// ハンバーガーメニュー
 const Hamburger = (props:any) => {
 
     return (
@@ -10,11 +9,15 @@ const Hamburger = (props:any) => {
                 <div className="h-[120px] ">
                 </div>
                 <ul className="w-[350px]">
-                    <li className="text-center">Home</li>
-                    <li className="text-center">Album</li>
+                    <li className="text-center">
+                        <Link  href={`/`}>
+                            Home
+                        </Link>
+                    </li>
+                    {/* <li className="text-center">Album</li> */}
                 </ul>
             </div>
-            <div className={props.menuOpen ? "fixed w-full h-full bg-black bg-opacity-30" : ""} onClick={props.onClick}>
+            <div className={props.menuOpen ? "fixed top-0 w-full h-full bg-black bg-opacity-30" : ""} onClick={props.onClick}>
             </div>
         </div>
 

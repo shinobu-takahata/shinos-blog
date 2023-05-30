@@ -6,8 +6,8 @@ import Footer from './footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'しのぶろぐ',
-  description: 'しのぶろぐ',
+  title: 'Yasetai TECH Blog',
+  description: '技術ブログ',
 };
 
 export default function RootLayout({

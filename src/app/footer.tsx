@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className='border-t-4 flex justify-center items-center'>
         <div className="text-gray-300 font-medium">
             ©Copyright2023 
-            <Link href={`/`}> しのぶろぐ.</Link>
+            <Link href={`/`}> Yasetai TECH Blog.</Link>
             All Rights Reserved.
         </div>
     </footer>

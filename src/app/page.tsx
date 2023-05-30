@@ -1,7 +1,7 @@
 import BlogItem  from './components/blog/blog_item';
 import { client } from './libs/client';
 import { Blog } from './types/blog';
-import Link from 'next/link';
+import Aside from './aside';
 
 const  Home = async() => {
   const data = await client.get({ endpoint: 'blogs' });
@@ -20,10 +20,7 @@ const  Home = async() => {
          </div>
        </div>
       </main>
-      <aside className='col-span-1 border-l-4'>
-        <Link  href={`/edit`}>aaaa
-        </Link>
-      </aside>
+      <Aside />
     </div>
   );
 };
