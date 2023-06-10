@@ -1,7 +1,7 @@
 import BlogItem  from './components/blog/blog_item';
 import { client } from './libs/client';
 import { Blog } from './types/blog';
-import Aside from './aside';
+import Aside from './components/top/aside';
 
 const  Home = async() => {
   const data = await client.get({ endpoint: 'blogs' });

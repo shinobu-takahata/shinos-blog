@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useMenuOpenStore } from "./state/store";
+import { useMenuOpenStore } from "../../state/store";
 
 // ハンバーガーメニュー
 const Hamburger = () => {
