@@ -1,16 +1,15 @@
 'use client';
 import Link from "next/link";
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Hamburger from "./hamburger";
+import { useMenuOpenStore } from "./state/store";
 
 // ヘッダー
 const Head = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const handleMenuOpen = () => {
-    setMenuOpen(() => !menuOpen);
-  };
+
+  const menuOpen = useMenuOpenStore((state) => state.menuOpen);
+  const handleMenuOpen = useMenuOpenStore((state) => state.handleMenuOpen);
 
   return (
     <header className="text-gray-600 bg-gray-800  ">
@@ -21,14 +20,14 @@ const Head = () => {
         <div id="hamburger" className={`mr-5 right-0 hover:cursor-pointer z-40 ${menuOpen ? "fixed" : "absolute"}`}>
           {
             menuOpen 
-            ? <FontAwesomeIcon icon={faXmark} size="2xl" style={{color: "#fafafa",}} onClick={handleMenuOpen} className="transition-all duration-150"/> 
-            : <FontAwesomeIcon icon={faBars}  size="2xl" style={{color: "#fafafa",}} onClick={handleMenuOpen} />
+            ? <FontAwesomeIcon icon={faXmark} size="2xl" style={{color: "#fafafa",}} onClick={() => handleMenuOpen(menuOpen)} className="transition-all duration-150"/> 
+            : <FontAwesomeIcon icon={faBars}  size="2xl" style={{color: "#fafafa",}} onClick={() => handleMenuOpen(menuOpen)} />
           }
           
         </div>
       </div>
       
-      <Hamburger menuOpen={menuOpen} onClick={handleMenuOpen}/>
+      <Hamburger />
 
     </header>
   );
