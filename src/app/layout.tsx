@@ -24,7 +24,7 @@ export default function RootLayout({
       </head>
 
       <body className="h-full">
-        <div className='grid grid-rows-[120px_minmax(800px,_1fr)_75px]'>
+        <div className='grid grid-rows-[75px_minmax(800px,_1fr)_75px]'>
           <Head></Head>
           {children}
           <Footer></Footer>
