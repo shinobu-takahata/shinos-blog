@@ -8,11 +8,11 @@ const BlogItem = (content:Blog) => {
         <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
             <Link  href={`blog/${content.id}`}>
                 <Image
-                src={content.eyecatch.url}
-                width={1000}
-                height={48}
-                className="object-cover"
-                alt=""
+                    src={content.eyecatch.url}
+                    width={1000}
+                    height={48}
+                    className="object-cover"
+                    alt=""
                 />
                 <div className="p-5 border border-t-0">
                 <p className="mb-3 text-xs font-semibold tracking-wide uppercase">

@@ -12,7 +12,6 @@ type PageProps = {
 const BlogDetailPage = async ({ params }: PageProps) => {
     const data = await client.get({ endpoint: "blogs", contentId:params.blogId });
 
-    console.log("testsssssssssssssssssssssssss");    
     return (
       <div className="prose max-w-screen-md mx-auto p-10">
         <h1>{data.title}</h1>
