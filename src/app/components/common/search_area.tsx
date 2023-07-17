@@ -22,7 +22,7 @@ const SearchArea = () => {
     const handleSearch = async(event: any) => {
         event.preventDefault();
         const val = searchText;
-        const search_blogs = await fetch("http://localhost:3000/api/blogs", {
+        const search_blogs = await fetch("/api/blogs", {
             method: "POST",
             body: JSON.stringify({ val })
         });
