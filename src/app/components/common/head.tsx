@@ -4,16 +4,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Hamburger from "./hamburger";
 import SearchArea from "./search_area";
-import { useMenuOpenStore } from "../../state/store";
-import { usesearchAreaOpenStore } from '../../state/store';
+import { useMenuOpenStore, useSearchContentsStore } from "../../state/store";
+import { useSearchAreaOpenStore } from '../../state/store';
 
 // ヘッダー
 const Head = () => {
 
   const menuOpen = useMenuOpenStore((state) => state.menuOpen);
   const handleMenuOpen = useMenuOpenStore((state) => state.handleMenuOpen);
-  const searchAreaOpen = usesearchAreaOpenStore((state) => state.searchAreaOpen);
-  const handlesearchAreaOpen = usesearchAreaOpenStore((state) => state.handlesearchAreaOpen);
+  const searchAreaOpen = useSearchAreaOpenStore((state) => state.searchAreaOpen);
+  const handlesearchAreaOpen = useSearchAreaOpenStore((state) => state.handlesearchAreaOpen);
+
+  const searchContents = useSearchContentsStore((state) => state.searchContents);
+  const handlesearchContents = useSearchContentsStore((state) => state.handlesearchContents);
+
+  const handleReturnHome = () => {
+    handleMenuOpen(!menuOpen);
+    handlesearchContents([]);
+  };
 
   return (
     <header className="text-gray-600 bg-gray-800">
@@ -24,7 +32,7 @@ const Head = () => {
         </div>
 
         {/* ------------------ タイトル ------------------ */}
-        <Link  href={`/`} className="">
+        <Link  href={`/`} onClick={handleReturnHome} className="">
           <span className="text-xl text-gray-300 font-montserrat font-bold">Yasetai TECH Blog</span>
         </Link>
 

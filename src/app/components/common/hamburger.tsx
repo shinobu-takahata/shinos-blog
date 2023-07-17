@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useMenuOpenStore } from "../../state/store";
+import { useMenuOpenStore, useSearchContentsStore } from "../../state/store";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,6 +7,13 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 const Hamburger = () => {
     const menuOpen = useMenuOpenStore((state) => state.menuOpen);
     const handleMenuOpen = useMenuOpenStore((state) => state.handleMenuOpen);
+    const searchContents = useSearchContentsStore((state) => state.searchContents);
+    const handlesearchContents = useSearchContentsStore((state) => state.handlesearchContents);
+
+    const handleReturnHome = () => {
+        handleMenuOpen(menuOpen);
+        handlesearchContents([]);
+    };
 
     return (
         <div>
@@ -16,7 +23,7 @@ const Hamburger = () => {
                 </div>
                 <ul className="w-[350px] mt-8">
                     <li className="text-center">
-                        <Link  href={`/`} onClick={() => handleMenuOpen(menuOpen)}>
+                        <Link  href={`/`} onClick={handleReturnHome}>
                             Home
                         </Link>
                     </li>
